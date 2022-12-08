@@ -13,6 +13,10 @@ void createPipeline(it) {
     def desc = it.description
     pipelineJob(jobname) {
         description(desc)
+        
+        parameters {
+            choiceParam('editor', ['VIM (default)', 'nano', 'emacs'], 'Choose your favourite text editor')
+        }
 
         definition {
             cpsScm {
